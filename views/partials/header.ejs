@@ -1,0 +1,30 @@
+<header class="header">
+    <section class="flex">
+        <a href="/home" class="logo">education</a>
+        
+        <form action="/search" method="post" class="search-form">
+            <input type="text" name="search_box" placeholder="Search courses..." 
+                   required maxlength="100" id="search-box">
+            <button type="submit" class="fas fa-search" aria-label="Search"></button>
+        </form>
+        
+        <div class="icons">
+            <button id="menu-btn" class="fas fa-bars" aria-label="Menu"></button>
+            <button id="search-btn" class="fas fa-search" aria-label="Open Search"></button>
+            <button id="user-btn" class="fas fa-user" aria-label="User Account"></button>
+            <button id="toggle-btn" class="fas fa-sun" aria-label="Toggle Dark Mode"></button>
+        </div>
+        <div class="profile">
+            <img src="/images/pic-1.jpg" alt="profile picture">
+            <h3><%= user ? user.name : 'Guest' %></h3>
+            <span><%= user ? user.role : 'guest' %></span>
+            <a href="/profile" class="btn">view profile</a>
+            <div class="flex-btn">
+                <% if(!user) { %>
+                <a href="/login" class="option-btn">login</a>
+                <a href="/register" class="option-btn">register</a>
+                <% } %>
+            </div>
+        </div>
+    </section>
+</header>
