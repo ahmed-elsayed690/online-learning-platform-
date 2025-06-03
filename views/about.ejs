@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<%- include('partials/header') %>
+<%- include('partials/sidebar') %>
+
+<section class="about">
+    <div class="row">
+        <div class="image">
+            <img src="/images/about-img.svg" alt="about illustration">
+        </div>
+        <div class="content">
+            <h3>why choose us?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab quibusdam officia magni ea dolorum repellat assumenda dignissimos ipsum magnam unde!</p>
+            <a href="/courses" class="inline-btn">our courses</a>    
+        </div>
+    </div>
+
+    <div class="box-container">
+        <div class="box">
+            <i class="fas fa-graduation-cap"></i>
+            <div>
+                <h3>+10k</h3>
+                <span>online courses</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-user-graduate"></i>
+            <div>
+                <h3>+20k</h3>
+                <span>brilliant student</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-chalkboard-user"></i>
+            <div>
+                <h3>+2k</h3>
+                <span>expert teachers</span>
+            </div>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-briefcase"></i>
+            <div>
+                <h3>100%</h3>
+                <span>job placement</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reviews">
+    <h1 class="heading">students reviews</h1>
+    <div class="box-container">
+        <% for(let i=2; i<=7; i++) { %>
+        <div class="box"> 
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, hic velit unde a adipisci id dolor officiis dignissimos aut tempore.</p>
+            <div class="user">
+                <img src="/images/pic-<%= i %>.jpg" alt="student review">
+                <div>
+                    <h3>john deo</h3>
+                    <div class="stars">
+                        <% for(let j=0; j<4; j++) { %>
+                        <i class="fas fa-star"></i>
+                        <% } %>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</section>
+
+<%- include('partials/footer') %>
+<script src="/script.js"></script>
+</body>
+</html>

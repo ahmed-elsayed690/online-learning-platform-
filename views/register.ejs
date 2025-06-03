@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<%- include('partials/header') %>
+<%- include('partials/sidebar') %>
+
+<section class="form-container">
+    <form action="/register" method="post" enctype="multipart/form-data">
+        <h3>register new</h3>
+        <p>your name<span>*</span></p>
+        <input type="text" name="name" placeholder="enter your name" maxlength="100" required class="box">
+        
+        <p>your email<span>*</span></p>
+        <input type="email" name="email" placeholder="enter your email" maxlength="100" required class="box">
+        
+        <p>your password<span>*</span></p>
+        <input type="password" name="password" placeholder="enter your password" maxlength="50" required class="box">
+        
+        <p>confirm password<span>*</span></p>
+        <input type="password" name="confirm_password" placeholder="confirm your password" maxlength="50" required class="box">
+        
+        <p>select pic<span>*</span></p>
+        <input type="file" name="image" accept="image/*" required class="box">
+        
+        <input type="submit" value="register now" name="submit" class="btn">
+    </form>
+</section>
+
+<%- include('partials/footer') %>
+<script src="/script.js"></script>
+</body>
+</html>

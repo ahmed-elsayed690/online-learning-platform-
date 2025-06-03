@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Courses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<%- include('partials/header') %>
+<%- include('partials/sidebar') %>
+
+<section class="courses">
+    <h1 class="heading">our courses</h1>
+    <div class="box-container">
+        <% const courses = [
+            { thumb: 'thumb-1.png', title: 'complete HTML tutorial' },
+            { thumb: 'thumb-2.png', title: 'complete CSS tutorial' },
+            { thumb: 'thumb-3.png', title: 'complete js tutorial' },
+            { thumb: 'thumb-4.png', title: 'complete bootstrap tutorial' },
+            { thumb: 'thumb-5.png', title: 'complete jquery tutorial' },
+            { thumb: 'thumb-6.png', title: 'complete SASS tutorial' }
+        ];
+        
+        courses.forEach((course, index) => { %>
+        <div class="box">
+            <div class="tutor">
+                <img src="/images/pic-<%= index + 2 %>.jpg" alt="tutor">
+                <div>
+                    <h3>john deo</h3>
+                    <span>19-4-2025</span>
+                </div>
+            </div>
+            <img src="/images/<%= course.thumb %>" class="thumb" alt="course thumbnail">
+            <h3 class="title"><%= course.title %></h3>
+            <a href="/playlist" class="inline-btn">view playlist</a>
+        </div>
+        <% }); %>
+    </div>
+</section>
+
+<%- include('partials/footer') %>
+<script src="/script.js"></script>
+</body>
+</html>

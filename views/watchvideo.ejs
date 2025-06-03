@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Watch Video</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<%- include('partials/header') %>
+<%- include('partials/sidebar') %>
+
+<section class="watch-video">
+    <div class="video-details">
+        <video src="<%= video.url || '' %>" class="video" poster="/images/post-1-1.png" controls autoplay></video>
+        <h3 class="title"><%= video.title || 'complete HTML tutorial (part01)' %></h3>
+        <div class="info">
+            <p><i class="fas fa-calendar"></i><span><%= video.date || '21-4-2025' %></span></p>
+            <p><i class="fas fa-heart"></i><span><%= video.likes || '40' %> likes</span></p>
+        </div>
+        <div class="tutor">
+            <img src="/images/pic-2.jpg" alt="tutor">
+            <div>
+                <h3><%= video.tutor || 'john deo' %></h3>
+                <span>developer</span>
+            </div>
+        </div>
+        <form action="" method="post" class="flex">
+            <a href="/playlist" class="inline-btn">view playlist</a>
+            <button type="submit"><i class="far fa-heart"></i><span>like</span></button>
+        </form>
+        <div class="descriptions">
+            <p><%= video.description || 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae totam dicta laborum, eligendi incidunt illo!' %></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, eum ducimus, tenetur ullam corrupti non minima, vel accusamus praesentium sapiente exercitationem amet earum incidunt nihil nostrum reprehenderit eius quo ratione?</p>
+        </div>
+    </div>
+</section>
+
+<section class="comments">
+    <h1 class="heading">add a comment</h1>
+
+    <form action="/add-comment" method="post" class="add-comment">
+        <h3>add title</h3>
+        <textarea name="comment_box" required placeholder="write your comment..." maxlength="1000" cols="30" rows="10"></textarea>
+        <input type="submit" value="add comment" name="add_comment" class="inline-btn">
+    </form>
+
+    <h1 class="heading"><%= comments.length || '6' %> comments</h1>
+
+    <div class="show-comments">
+        <% if (comments && comments.length > 0) { %>
+            <% comments.forEach(comment => { %>
+            <div class="box">
+                <div class="user">
+                    <img src="/images/pic-<%= comment.userId || '1' %>.jpg" alt="commenter">
+                    <div>
+                        <h3><%= comment.username || 'ahmed' %></h3>
+                        <span><%= comment.date || '21-4-2025' %></span>
+                    </div>
+                </div>
+                <p class="text"><%= comment.text || 'this is a comment' %></p>
+                <% if (user && user.id === comment.userId) { %>
+                <form action="/edit-comment" method="post" class="flex-btn">
+                    <button type="submit" name="edit_comment" class="inline-delete-btn">edit comment</button>
+                </form>
+                <% } %>
+            </div>
+            <% }); %>
+        <% } else { %>
+            <div class="box">
+                <div class="user">
+                    <img src="/images/pic-1.jpg" alt="default commenter">
+                    <div>
+                        <h3>ahmed</h3>
+                        <span>21-4-2025</span>
+                    </div>
+                </div>
+                <p class="text">this is a comment form ahmed</p>
+                <form action="" method="post" class="flex-btn">
+                    <button type="submit" name="delete_comment" class="inline-delete-btn">edit comment</button>
+                </form>
+            </div>
+        <% } %>
+    </div>
+</section>
+
+<%- include('partials/footer') %>
+<script src="/script.js"></script>
+</body>
+</html>
